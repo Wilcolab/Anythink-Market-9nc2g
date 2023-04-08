@@ -6,21 +6,13 @@ import { store } from "./store";
 
 import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
-import theme from "./styles/theme";
-import GlobalStyle from "./styles/GlobalStyle"
 
 ReactDOM.render(
-  <>
-  <GlobalStyle />
-  <ThemeProvider theme={theme}>
   <Provider store={store}>
     <BrowserRouter basename="/">
       <App />
     </BrowserRouter>
-    <theme />
-  </Provider>
-  </ThemeProvider>
-  </>,
+  </Provider>,
 
   document.getElementById("root")
 );
