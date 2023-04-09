@@ -49,7 +49,7 @@ const ItemPreview = (props) => {
         <div className="d-flex flex-row align-items-center pt-2 item-footer">
           <Link to={`/@${item.seller.username}`} className="flex-grow-1">
             <img
-              src={item.seller.image}
+              src={"./placeholder.png"}
               alt={item.seller.username}
               className="user-pic rounded-circle pr-1"
             />
