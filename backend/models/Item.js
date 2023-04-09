@@ -2,14 +2,13 @@ var mongoose = require("mongoose");
 var uniqueValidator = require("mongoose-unique-validator");
 var slug = require("slug");
 var User = mongoose.model("User");
-var fallback_img = "/placeholder.png"
 
 var ItemSchema = new mongoose.Schema(
   {
     slug: { type: String, lowercase: true, unique: true },
     title: {type: String, required: [true, "can't be blank"]},
     description: {type: String, required: [true, "can't be blank"]},
-    image: {},
+    image: String,
     favoritesCount: { type: Number, default: 0 },
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
     tagList: [{ type: String }],
@@ -50,7 +49,7 @@ ItemSchema.methods.toJSONFor = function(user) {
     slug: this.slug,
     title: this.title,
     description: this.description,
-    image: this.image || fallback_img,
+    image: this.image,
     createdAt: this.createdAt,
     updatedAt: this.updatedAt,
     tagList: this.tagList,
